@@ -38,7 +38,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (6.0.0)
-    bcrypt (3.1.9)
+    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -79,6 +79,11 @@ GEM
     erubis (2.7.0)
     excon (0.32.1)
     execjs (2.0.2)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     fog (1.21.0)
       fog-brightbox
       fog-core (~> 1.21, >= 1.21.1)
@@ -240,6 +245,7 @@ DEPENDENCIES
   colorize
   cucumber-rails
   database_cleaner
+  factory_girl_rails (~> 4.5)
   fog
   jbuilder (~> 1.2)
   jquery-rails
@@ -261,6 +267,3 @@ DEPENDENCIES
   vcr
   webmock
   will_paginate (~> 3.0)
-
-BUNDLED WITH
-   1.10.5

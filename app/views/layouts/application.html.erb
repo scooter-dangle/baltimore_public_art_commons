@@ -31,7 +31,8 @@
     </span>
     <% if logged_in? %>
     <span class="wrapper">
-    <%= "Logged in as #{current_user.first_name}" %>
+    <%= "Logged in as #{current_user.first_name} |" %>
+    <%= link_to 'Invite User', '#' %>
     </span>
     <% end %>
     <%= yield :search %>
