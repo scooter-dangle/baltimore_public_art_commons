@@ -1,5 +1,5 @@
-Given(/^I am logged in as an admin user$/) do
-  @user = FactoryGirl.create :admin
+Given(/^I am logged in as an "(.*?)" user$/) do |user|
+  @user = FactoryGirl.create :"#{user}"
   visit('/login')
   fill_in 'Email', with: @user.email
   fill_in 'Password', with: "password"
