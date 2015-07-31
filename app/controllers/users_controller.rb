@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(new_user_params)
-    @user.confirmation_hash = RandomHash.generate
+    confirmation_hash
     if @user.save
       flash[:notice] = "Success!"
     else
@@ -29,5 +29,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email,
                                  :role,
                                  :password)
+  end
+
+  def confirmation_hash
+    @user.confirmation_hash = RandomHash.generate
   end
 end
