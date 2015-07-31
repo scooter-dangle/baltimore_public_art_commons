@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628190233) do
+ActiveRecord::Schema.define(version: 20150731205929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20150628190233) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "file",           limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "imageable_id"
+    t.string   "file",           limit: 255
     t.string   "imageable_type", limit: 255
   end
 
@@ -117,14 +117,15 @@ ActiveRecord::Schema.define(version: 20150628190233) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
+    t.string   "first_name",        limit: 255
+    t.string   "last_name",         limit: 255
+    t.string   "email",             limit: 255
+    t.string   "password_digest",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "organization",    limit: 255
-    t.integer  "role",                        default: 2
+    t.string   "organization",      limit: 255
+    t.integer  "role",                          default: 2
+    t.string   "confirmation_hash"
   end
 
 end
