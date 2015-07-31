@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+<%= f.label :email, "Email" %>
+<%= f.text_field :email %>
+<%= f.label :role, "Role" %>
+<%= f.select :role, ["Admin", "Curator", "Cataloguer" ] %>
+<%= f.submit "Invite" %>
+<% end %>

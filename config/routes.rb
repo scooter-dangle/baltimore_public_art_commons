@@ -5,7 +5,7 @@ BaltimorePublicArtCommons::Application.routes.draw do
   resources :items, only: [:index, :show]
   resources :artists, only: [:index]
   resources :sessions, only: [:create, :new]
-  resources :invite_user, only: [:new]
+  resources :users, only: [:new, :create]
 
   get 'static_pages/about', to: 'static_pages#about', as: 'about', path: '/about'
 
