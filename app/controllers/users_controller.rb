@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(new_user_params)
-    confirmation_hash
-    if @user.save
+    user = User.new(new_user_params)
+    confirmation_hash(user)
+    if user.save
       flash[:notice] = "Success!"
+      UserMailer.invite(user.id).deliver_now
     else
-      binding.pry
       flash[:notice] = "You must be missing something."
     end
     redirect_to new_user_path
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
                                  :password)
   end
 
-  def confirmation_hash
-    @user.confirmation_hash = RandomHash.generate
+  def confirmation_hash(user)
+    user.confirmation_hash = RandomHash.generate
   end
 end

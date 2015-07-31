@@ -19,5 +19,11 @@ describe UsersController, type: :controller do
     it 'should save a confirmation hash' do
       expect(User.last.confirmation_hash).not_to be(nil)
     end
+
+    it 'should send an email' do
+      expect{
+        post :create, user: {email: user.email, role: user.role}
+      }.to change(ActionMailer::Base.deliveries, :count).by 1
+    end
   end
 end

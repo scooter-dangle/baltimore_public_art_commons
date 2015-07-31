@@ -1,2 +1,0 @@
-class InviteMailer < ApplicationMailer
-end
