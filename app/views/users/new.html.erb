@@ -1,7 +1,11 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <%= form_for @user do |f| %>
 <%= f.label :email, "Email" %>
 <%= f.text_field :email %>
 <%= f.label :role, "Role" %>
-<%= f.select :role, ["Admin", "Curator", "Cataloguer" ] %>
+<%= f.select :role, ["admin", "curator", "cataloguer" ] %>
 <%= f.submit "Invite" %>
 <% end %>

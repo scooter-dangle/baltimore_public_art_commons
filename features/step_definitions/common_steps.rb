@@ -11,7 +11,10 @@ Given(/^I am on the index page$/) do
   visit('/')
 end
 
-
 When(/^I click the "(.*?)" link$/) do |arg1|
   click_link arg1
+end
+
+Then(/^I should see a success message$/) do
+  expect(page).to have_content("Success!")
 end

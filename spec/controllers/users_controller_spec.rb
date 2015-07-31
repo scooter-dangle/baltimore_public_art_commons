@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController, type: :controller do
-  let(:user) {create :admin}
+  let!(:user) {create :admin}
   describe 'POST :create' do
     it 'should respond with success' do
       post :create, user: {email: user.email, role: user.role}
