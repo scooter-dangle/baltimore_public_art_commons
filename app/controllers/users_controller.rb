@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     redirect_to new_user_path
   end
 
+  def update_password
+    @user = User.find params[:user_id]
+    token = params[:token]
+    if token != @user.confirmation_hash
+      #TODO we should add error pages with explanations
+      redirect_to root_path
+    end
+  end
+
   private
 
   def new_user_params

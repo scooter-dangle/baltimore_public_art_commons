@@ -1,5 +1,7 @@
 # Read about Factories at https://github.com/thoughtbot/factory_girl
 
+require 'random_hash'
+
 FactoryGirl.define do
   factory :admin, class: User do
     first_name "Cat"
@@ -8,6 +10,6 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
     role :admin
-
+    confirmation_hash RandomHash.generate
   end
 end
