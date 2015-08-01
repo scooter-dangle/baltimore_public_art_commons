@@ -373,9 +373,6 @@ DEPENDENCIES
   vcr
   webmock
   will_paginate (~> 3.0)
-<<<<<<< HEAD
-=======
 
 BUNDLED WITH
    1.10.6
->>>>>>> master
