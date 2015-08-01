@@ -18,3 +18,21 @@ end
 Then(/^I should see a success message$/) do
   expect(page).to have_content("Success!")
 end
+
+When(/^I fill out the form$/) do |form_info|
+  form_info.hashes.map(&:values).each do |field_name, value|
+    fill_in field_name, with: value
+  end
+end
+
+When(/^I enter (\w+) as '(.+)'$/) do |field_name, value|
+  fill_in field_name, with: value
+end
+
+When(/^I select '([^']+)' from '([^']+)'$/) do |selection, source|
+  select selection, from: source
+end
+
+When(/^I press '(.+)'$/) do |button_name|
+  click_button button_name
+end

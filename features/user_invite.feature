@@ -6,5 +6,7 @@ Feature: User invites another user
 
   Scenario: A user wants to invite another user
     When I click the "Invite User" link
-    And I fill out the form
+    And I enter Email as 'new@user.com'
+    And I select 'curator' from 'Role'
+    And I press 'Invite'
     Then I should see a success message
