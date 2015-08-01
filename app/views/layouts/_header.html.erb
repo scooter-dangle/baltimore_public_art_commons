@@ -22,14 +22,14 @@
       <li class='horizontal-list-element'>
         <%= link_to 'About Us', about_path %>
       </li>
-      <li class='horizontal-list-element'>
-        <%= link_to 'Invite User', new_user_path %>
-      </li>
     </ul>
   </nav>
 
   <% if logged_in? %>
     <%= "Logged in as #{current_user.first_name}" %>
+    <li class='horizontal-list-element'>
+      <%= link_to 'Invite User', new_user_path %>
+    </li>
   <% end %>
 
   <div class='search'>
