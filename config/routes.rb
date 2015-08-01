@@ -5,9 +5,7 @@ BaltimorePublicArtCommons::Application.routes.draw do
   resources :items, only: [:index, :show]
   resources :artists, only: [:index]
   resources :sessions, only: [:create, :new]
-  resources :users, only: [:new, :create] do
-    get 'update-password', to: 'users#update_password'
-  end
+  resources :users, only: [:new, :create, :edit, :update]
 
   get 'static_pages/about', to: 'static_pages#about', as: 'about', path: '/about'
 

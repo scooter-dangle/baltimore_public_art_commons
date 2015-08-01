@@ -27,19 +27,19 @@ describe UsersController, type: :controller do
     end
   end
 
-  describe 'GET :update_password' do
+  describe 'GET :edit' do
     let(:user) {create :admin}
 
     context 'the user token is correct' do
       it 'should render view on token confirmation' do
-        get :update_password, {user_id: user.id, token: user.confirmation_hash}
-        expect(response).to render_template('update_password')
+        get :edit, {id: user.id, token: user.confirmation_hash}
+        expect(response).to render_template('edit')
       end
     end
 
     context 'the user token is missing or incorrect' do
       it 'should redirect to root path ' do
-        get :update_password, {user_id: user.id}
+        get :edit, {id: user.id}
         expect(response.status).to eq(302)
       end
     end

@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(new_user_params)
-    confirmation_hash(user)
+    user = User.create_invited_user(user_params)
     if user.save
       flash[:notice] = "Success!"
       UserMailer.invite(user.id).deliver_now
@@ -18,8 +17,8 @@ class UsersController < ApplicationController
     redirect_to new_user_path
   end
 
-  def update_password
-    @user = User.find params[:user_id]
+  def edit
+    @user = User.find params[:id]
     token = params[:token]
     if token != @user.confirmation_hash
       #TODO we should add error pages with explanations
@@ -29,18 +28,8 @@ class UsersController < ApplicationController
 
   private
 
-  def new_user_params
-    params.require(:user).permit(:email,
-                                 :role).merge(password: RandomHash.generate)
-  end
-
   def user_params
     params.require(:user).permit(:email,
-                                 :role,
-                                 :password)
-  end
-
-  def confirmation_hash(user)
-    user.confirmation_hash = RandomHash.generate
+                                 :role)
   end
 end
