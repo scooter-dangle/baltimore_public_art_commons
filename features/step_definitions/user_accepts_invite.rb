@@ -1,4 +1,4 @@
-Given(/^an admin has invited me with confirmation hash #(.+)$/) do |confirmation_hash|
+Given(/^an admin has invited me at '([^']+)' with confirmation hash #(.+)$/) do |confirmation_hash|
   user = User.create_invited_user({})
   user.confirmation_hash = confirmation_hash
   user.save!
