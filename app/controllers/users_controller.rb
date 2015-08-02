@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  require 'random_hash'
-
   def new
     @user = User.new
   end

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  require 'random_hash'
+
   enum role: [ :admin, :curator, :cataloguer ]
 
 
